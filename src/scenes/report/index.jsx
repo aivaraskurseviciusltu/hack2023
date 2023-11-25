@@ -128,7 +128,7 @@ const Report = () => {
                       </MenuItem>
                       <MenuItem value={"Pickup"}>
                         <Pin iconType="Pickup" />
-                        SOS
+                        Help
                       </MenuItem>
                       <MenuItem value={"Resources"}>
                         <Pin iconType="Resources" />
