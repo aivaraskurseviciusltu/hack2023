@@ -133,7 +133,7 @@ const Report = () => {
                         <Pin iconType="Resources" />
                         Resources
                       </MenuItem>
-                      <MenuItem value={"Shelter"}>
+                      <MenuItem value={"ShelterNoCount"}>
                         <Pin iconType="ShelterNoCount" />
                         Shelter
                       </MenuItem>

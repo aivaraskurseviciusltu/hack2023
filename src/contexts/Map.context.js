@@ -7,7 +7,7 @@ const MapContext = createContext({});
 const MapContextProvider = ({ children }) => {
   const [markers, setMarkers] = useState([
     {
-      description: "",
+      description: "My current location",
       latitude: 54.6943,
       longitude: 25.2836,
       iconType: "currentLocation",
