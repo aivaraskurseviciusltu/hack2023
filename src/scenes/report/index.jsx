@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Button,
@@ -6,6 +7,7 @@ import {
   Select,
   MenuItem,
   FormControl,
+  Stack,
 } from "@mui/material";
 import { Formik } from "formik";
 import { styled } from "@mui/material/styles";
@@ -15,8 +17,9 @@ import Header from "../../components/Header";
 import { useContext, useState } from "react";
 import { MapContext } from "../../contexts/Map.context";
 import Pin from "../../components/Map/pin";
-import { useNavigate } from 'react-router-dom';
-import React from "react";
+import { useNavigate } from "react-router-dom";
+import Map from "../../components/DraggablePinMap/Map";
+
 const Report = () => {
   const [category, setCategory] = useState(null);
   const [fileURI, setFileURI] = useState();
@@ -24,11 +27,16 @@ const Report = () => {
 
   const { markers, updateMarkers } = useContext(MapContext);
 
+  const [markerPosition, setMarkerPosition] = useState({
+    latitude: 0,
+    longitude: 0,
+  });
+
   const handleFormSubmit = (values) => {
     const updatedValues = {
       description: values.description,
-      latitude: 54.6943,
-      longitude: 25.2836,
+      latitude: markerPosition.latitude,
+      longitude: markerPosition.longitude,
       image: fileURI,
       iconType: category,
     };
@@ -39,7 +47,7 @@ const Report = () => {
 
     values.description = "";
     values.location = "";
-    navigate('/');
+    navigate("/");
   };
 
   const handleFileChange = (event) => {
@@ -69,113 +77,124 @@ const Report = () => {
   return (
     <Box display="grid" gap="30px" m="20px">
       <Header title="Add Report" subtitle="Create a New Report" />
-      <Formik
-        onSubmit={handleFormSubmit}
-        initialValues={initialValues}
-        validationSchema={checkoutSchema}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleBlur,
-          handleChange,
-          handleSubmit,
-        }) => (
-          <form onSubmit={handleSubmit}>
-            <Box display="grid" gap="30px">
-              <FormControl variant="filled" fullWidth>
-                <InputLabel id="demo-simple-select-label">Category</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={category}
-                  label="category"
-                  onChange={handleCategory}
-                  error={!!touched.category && !!errors.category}
-                  displayEmpty
-                  sx={{
-                    "& .MuiFilledInput-input": {
-                      display: "flex",
-                      alignItems: "center",
-                    },
-                  }}
-                >
-                  <MenuItem value={"Enemy"}>
-                    {" "}
-                    <Pin iconType="Enemy" /> Enemy{" "}
-                  </MenuItem>
-                  <MenuItem value={"Explosion"}>
-                    {" "}
-                    <Pin iconType="Explosion" /> Explosion
-                  </MenuItem>
-                  <MenuItem value={"Help"}>
-                    <Pin iconType="Help" /> Help
-                  </MenuItem>
-                  <MenuItem value={"Pickup"}>
-                    <Pin iconType="Pickup" />
-                    Pickup
-                  </MenuItem>
-                  <MenuItem value={"Resources"}>
-                    <Pin iconType="Resources" />
-                    Resources
-                  </MenuItem>
-                  <MenuItem value={"Shelter"}>
-                    <Pin iconType="ShelterNoCount" />
-                    Shelter
-                  </MenuItem>
-                </Select>
-              </FormControl>
-              <TextField
-                multiline
-                variant="filled"
-                type="text"
-                label="Description"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.description}
-                name="description"
-                error={!!touched.description && !!errors.description}
-                helperText={touched.description && errors.description}
-              />
-              <TextField
-                multiline
-                variant="filled"
-                type="text"
-                label="Location"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.location}
-                name="location"
-                error={!!touched.location && !!errors.location}
-                helperText={touched.location && errors.location}
-              />
-              <Button
-                component="label"
-                variant="outlined"
-                color="secondary"
-                startIcon={<CloudUploadIcon />}
-              >
-                Upload file
-                <input
-                  type="file"
-                  style={{ display: "none" }}
-                  onChange={handleFileChange}
-                />
-                <VisuallyHiddenInput type="file" />
-              </Button>
-              <Button
-                type="submit"
-                color="secondary"
-                variant="contained"
-                onSubmit={handleFormSubmit}
-              >
-                Create
-              </Button>
-            </Box>
-          </form>
-        )}
-      </Formik>
+
+      <Stack direction="row" spacing={2}>
+        <Stack flexGrow="1">
+          <Formik
+            onSubmit={handleFormSubmit}
+            initialValues={initialValues}
+            validationSchema={checkoutSchema}
+          >
+            {({
+              values,
+              errors,
+              touched,
+              handleBlur,
+              handleChange,
+              handleSubmit,
+            }) => (
+              <form onSubmit={handleSubmit}>
+                <Box display="grid" gap="30px">
+                  <FormControl variant="filled" fullWidth>
+                    <InputLabel id="demo-simple-select-label">
+                      Category
+                    </InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={category}
+                      label="category"
+                      onChange={handleCategory}
+                      error={!!touched.category && !!errors.category}
+                      displayEmpty
+                      sx={{
+                        "& .MuiFilledInput-input": {
+                          display: "flex",
+                          alignItems: "center",
+                        },
+                      }}
+                    >
+                      <MenuItem value={"Enemy"}>
+                        {" "}
+                        <Pin iconType="Enemy" /> Enemy{" "}
+                      </MenuItem>
+                      <MenuItem value={"Explosion"}>
+                        {" "}
+                        <Pin iconType="Explosion" /> Explosion
+                      </MenuItem>
+                      <MenuItem value={"Help"}>
+                        <Pin iconType="Help" /> Help
+                      </MenuItem>
+                      <MenuItem value={"Pickup"}>
+                        <Pin iconType="Pickup" />
+                        Pickup
+                      </MenuItem>
+                      <MenuItem value={"Resources"}>
+                        <Pin iconType="Resources" />
+                        Resources
+                      </MenuItem>
+                      <MenuItem value={"Shelter"}>
+                        <Pin iconType="ShelterNoCount" />
+                        Shelter
+                      </MenuItem>
+                    </Select>
+                  </FormControl>
+                  <TextField
+                    multiline
+                    variant="filled"
+                    type="text"
+                    label="Description"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    value={values.description}
+                    name="description"
+                    error={!!touched.description && !!errors.description}
+                    helperText={touched.description && errors.description}
+                  />
+                  <TextField
+                    multiline
+                    variant="filled"
+                    type="text"
+                    label="Location"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    value={values.location}
+                    name="location"
+                    error={!!touched.location && !!errors.location}
+                    helperText={touched.location && errors.location}
+                  />
+                  <Button
+                    component="label"
+                    variant="outlined"
+                    color="secondary"
+                    startIcon={<CloudUploadIcon />}
+                  >
+                    Upload file
+                    <input
+                      type="file"
+                      style={{ display: "none" }}
+                      onChange={handleFileChange}
+                    />
+                    <VisuallyHiddenInput type="file" />
+                  </Button>
+                  <Button
+                    type="submit"
+                    color="secondary"
+                    variant="contained"
+                    onSubmit={handleFormSubmit}
+                  >
+                    Create
+                  </Button>
+                </Box>
+              </form>
+            )}
+          </Formik>
+        </Stack>
+
+        <Stack flexGrow="1">
+          <Map setMarkerPosition={setMarkerPosition} />
+        </Stack>
+      </Stack>
     </Box>
   );
 };
