@@ -8,11 +8,27 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapIcon from "@mui/icons-material/Map";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
-
+import { useEffect } from "react";
+import { useLocation } from 'react-router-dom';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const location = useLocation();
+
+ useEffect(() => {
+    console.log(location.pathname);
+    
+    if (location.pathname.includes("/report")) {
+      setSelected("Report");
+    } else if (location.pathname.includes("/alerts")) {
+      setSelected("Alerts");
+    } else {
+      setSelected("Map");
+    }
+  }, [location.pathname, setSelected]);
+  
+
   return (
     <MenuItem
       active={selected === title}
