@@ -88,7 +88,7 @@ const Sidebar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/user.png`}
+                  src={`../../assets/user1.jpg`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
@@ -100,9 +100,6 @@ const Sidebar = () => {
                   sx={{ m: "10px 0 0 0" }}
                 >
                     King of Calbalia
-                </Typography>
-                <Typography variant="h5" color={colors.greenAccent[500]}>
-                  Volunteer
                 </Typography>
               </Box>
             </Box>
