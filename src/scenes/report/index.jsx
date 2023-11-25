@@ -79,7 +79,7 @@ const Report = () => {
     <Box display="grid" gap="30px" m="20px">
       <Header title="Add Report" subtitle="Create a New Report" />
 
-      <Stack direction="row" spacing={2}>
+      <Stack direction="row" height={500} spacing={2}>
         <Stack flexGrow="1">
           <Formik
             onSubmit={handleFormSubmit}
@@ -180,7 +180,7 @@ const Report = () => {
           </Formik>
         </Stack>
 
-        <Stack flexGrow="1">
+        <Stack flexGrow="1" >
           <Map setMarkerPosition={setMarkerPosition} />
         </Stack>
       </Stack>

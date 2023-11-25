@@ -36,7 +36,7 @@ const MapContextProvider = ({ children }) => {
       iconType: "Explosion",
     },
     {
-      description: "We offer first aid for any survivors or recent bombing",
+      description: "We offer first aid for any survivors on recent bombing",
       image:
           `${process.env.PUBLIC_URL + './assets/aid.jpeg'}`,
       latitude: 54.693700503812785,
