@@ -4,7 +4,7 @@ import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
 
-const ReportForm = () => {
+const Report = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   const handleFormSubmit = (values) => {
@@ -88,4 +88,4 @@ const initialValues = {
   address2: "",
 };
 
-export default ReportForm;
+export default Report;

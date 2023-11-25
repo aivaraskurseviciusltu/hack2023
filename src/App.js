@@ -4,7 +4,7 @@ import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import Form from "./scenes/form";
-import ReportForm from "./scenes/report_form";
+import Report from "./scenes/report";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 
@@ -23,7 +23,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/form" element={<Form />} />
-              <Route path="/report_form" element={<ReportForm/>} ></Route>
+              <Route path="/report" element={<Report/>} ></Route>
             </Routes>
           </main>
         </div>
