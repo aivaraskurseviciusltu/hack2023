@@ -92,10 +92,10 @@ const Report = () => {
         label="Location"
         onBlur={handleBlur}
         onChange={handleChange}
-        value={values.lastName}
-        name="lastName"
-        error={!!touched.lastName && !!errors.lastName}
-        helperText={touched.lastName && errors.lastName}
+        value={values.location}
+        name="location"
+        error={!!touched.location && !!errors.location}
+        helperText={touched.location && errors.location}
       />
       <Button
           component="label"
