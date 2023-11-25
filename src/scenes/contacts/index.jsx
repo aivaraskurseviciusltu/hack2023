@@ -20,7 +20,7 @@ const Contacts = () => {
     },
     {
       field: "age",
-      headerName: "Age",
+      headerName: "age",
       type: "number",
       headerAlign: "left",
       align: "left",
