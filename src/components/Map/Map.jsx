@@ -70,7 +70,7 @@ const MapComponent = () => {
           <Typography variant="h5" color="black" >
             {popupInfo.description}
           </Typography>
-          {popupInfo.image && <img width="100%" src={popupInfo.image} />}
+          {popupInfo.image && <img width="100%" height={"50px"}src={popupInfo.image} />}
         </Popup>
       )}
     </Map>
