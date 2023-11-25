@@ -20,17 +20,35 @@ function Pin({ size = 60, iconType }) {
   const getIcon = () => {
     switch (iconType) {
       case "Enemy":
-        return  <img src={Enemy} width={size} alt="React Logo" />
+        return <div style={{
+          width: '150px',
+          height: '150px',
+          borderRadius: '50%',
+          background: 'rgba(255, 0, 0, 0.4)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          <img src={Enemy} width={size} alt="Enemy"/>
+        </div>
       case "Explosion":
-        return <img src={Explosion} width={size} alt="React Logo" />
+        return <div style={{
+          width: '150px',
+          height: '150px',
+          borderRadius: '50%',
+          background: 'rgba(255, 0, 0, 0.4)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}><img src={Explosion} width={size} alt="Explosion"/></div>
       case "Help":
-        return <img src={Help} width={size} alt="React Logo" />
+        return <img src={Help} width={size} alt="Help" />
       case "Pickup":
-        return <img src={Pickup} width={size} alt="React Logo" />
+        return <img src={Pickup} width={size} alt="Pickup" />
       case "Resources":
-        return <img src={Resources} width={size} alt="React Logo" />
+        return <img src={Resources} width={size} alt="Resources" />
       case "ShelterNoCount":
-        return <img src={ShelterNoCount} width={size} alt="React Logo" />;
+        return <img src={ShelterNoCount} width={size} alt="ShelterNoCount" />;
       default:
         return (
           <svg height={20} viewBox="0 0 24 24" style={pinStyle}>

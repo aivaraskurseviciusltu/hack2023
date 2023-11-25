@@ -65,8 +65,9 @@ const MapComponent = () => {
           longitude={Number(popupInfo.longitude)}
           latitude={Number(popupInfo.latitude)}
           onClose={() => setPopupInfo(null)}
+          style={{maxHeight: '100px', display:'flex', flexDirection:'column'}}
         >
-          <Typography variant="p" component="p" color="black">
+          <Typography variant="h5" color="black" >
             {popupInfo.description}
           </Typography>
           {popupInfo.image && <img width="100%" src={popupInfo.image} />}
