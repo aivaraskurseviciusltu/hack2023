@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
-import Form from "./scenes/form";
 import Report from "./scenes/report";
 import Alerts from "./scenes/alerts";
 import { CssBaseline, ThemeProvider } from "@mui/material";
@@ -24,7 +23,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/report" element={<Report />} />
-              <Route path="/alerts" element={<Alerts/>} ></Route>
+              <Route path="/alerts" element={<Alerts />}></Route>
             </Routes>
           </main>
         </div>
