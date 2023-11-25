@@ -17,7 +17,7 @@ const Alerts = () => {
       <Accordion defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5" sx={{ fontWeight: 'bold' }}>
-            [2023/11/26] 12:00 : The Invasion Unfolds
+            [2023/11/25] 12:00 : The Invasion Unfolds
           </Typography>
         </AccordionSummary>
         <AccordionDetails style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
@@ -32,7 +32,7 @@ const Alerts = () => {
       <Accordion defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5" sx={{ fontWeight: 'bold' }}>
-            [2023/11/26] 12:30 : King's Call to Arms
+            [2023/11/25] 12:30 : King's Call to Arms
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -47,7 +47,7 @@ const Alerts = () => {
       <Accordion defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5" sx={{ fontWeight: 'bold' }}>
-            [2023/11/26] 13:00 : Frontline Dispatches
+            [2023/11/25] 13:00 : Frontline Dispatches
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -61,7 +61,7 @@ const Alerts = () => {
       <Accordion defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5" sx={{ fontWeight: 'bold' }}>
-            [2023/11/26] 13:30 : Kingdom's Resilience
+            [2023/11/25] 13:30 : Kingdom's Resilience
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -76,7 +76,7 @@ const Alerts = () => {
       <Accordion defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5" sx={{ fontWeight: 'bold' }}>
-            [2023/11/26] 14:00 : International Support
+            [2023/11/25] 14:00 : International Support
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -85,6 +85,37 @@ const Alerts = () => {
             neighboring realms and allies. Follow the diplomatic developments and international
             efforts to bring an end to the conflict. Calbalia is not alone in this struggle,
             and together, we stand stronger.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion defaultExpanded>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography color={colors.greenAccent[500]} variant="h5" sx={{ fontWeight: 'bold' }}>
+            [2023/11/25] 14:30 : International Support Strengthens
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography variant="h5">
+            Leaders from neighboring realms and international allies have issued statements condemning
+            the invasion and expressing unwavering support for Calbalia.
+            Diplomatic channels are abuzz with discussions on collaborative efforts to counter the Ducalolian threat.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion defaultExpanded>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography color={colors.greenAccent[500]} variant="h5" sx={{ fontWeight: 'bold' }}>
+            [2023/11/25] 15:00 : Humanitarian Aid Arrives
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography variant="h5">
+            Humanitarian aid from allied nations has begun to arrive, bringing much-needed
+            relief to those affected by the conflict. Medical supplies, food provisions,
+            and shelter materials are being distributed to support Calbalia's citizens.
+            Joint humanitarian initiatives are in progress, demonstrating the power of
+            international collaboration. Relief organizations are working hand-in-hand to
+            address the needs of displaced populations and those impacted by the invasion.
           </Typography>
         </AccordionDetails>
       </Accordion>
