@@ -1,10 +1,10 @@
 import * as React from "react";
-import { ReactComponent as Enemy } from "./icons/Enemy.svg";
-import { ReactComponent as Explosion } from "./icons/Explosion.svg";
-import { ReactComponent as Help } from "./icons/Help.svg";
-import { ReactComponent as Pickup } from "./icons/Pickup.svg";
-import { ReactComponent as Resources } from "./icons/Resources.svg";
-import { ReactComponent as ShelterNoCount } from "./icons/ShelterNoCount.svg";
+import Enemy  from "./icons/Enemy.svg";
+import Explosion  from "./icons/Explosion.svg";
+import Help  from "./icons/Help.svg";
+import Pickup from "./icons/Pickup.svg";
+import Resources from "./icons/Resources.svg";
+import ShelterNoCount  from "./icons/ShelterNoCount.svg";
 
 const pinStyle = {
   cursor: "pointer",
@@ -20,17 +20,17 @@ function Pin({ size = 60, iconType }) {
   const getIcon = () => {
     switch (iconType) {
       case "Enemy":
-        return <Enemy height={size} />;
+        return  <img src={Enemy} width={size} alt="React Logo" />
       case "Explosion":
-        return <Explosion height={size} />;
+        return <img src={Explosion} width={size} alt="React Logo" />
       case "Help":
-        return <Help height={size} />;
+        return <img src={Help} width={size} alt="React Logo" />
       case "Pickup":
-        return <Pickup height={size} />;
+        return <img src={Pickup} width={size} alt="React Logo" />
       case "Resources":
-        return <Resources height={size} />;
+        return <img src={Resources} width={size} alt="React Logo" />
       case "ShelterNoCount":
-        return <ShelterNoCount height={size} />;
+        return <img src={ShelterNoCount} width={size} alt="React Logo" />;
       default:
         return (
           <svg height={20} viewBox="0 0 24 24" style={pinStyle}>
@@ -39,7 +39,6 @@ function Pin({ size = 60, iconType }) {
         );
     }
   };
-  console.log(getIcon());
   return getIcon();
 }
 
