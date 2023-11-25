@@ -1,6 +1,6 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import { useState, useMemo } from "react";
-import { createRoot } from "react-dom/client";
+import { Typography } from "@mui/material";
 import Map, {
   Marker,
   Popup,
@@ -9,45 +9,43 @@ import Map, {
   ScaleControl,
   GeolocateControl,
 } from "react-map-gl";
-
-import ControlPanel from "./control-panel";
 import Pin from "./pin";
-
-import CITIES from "./cities.json";
+import { MapContext } from "../../contexts/Map.context";
 
 const TOKEN =
   "pk.eyJ1IjoibWFib25nIiwiYSI6ImNrMm9qN2tiYTEwc3ozZG41emx6bW9uZnQifQ.PhojWq3UwsAlPB7LBvJiTw"; // Set your mapbox token here
 
 const MapComponent = () => {
   const [popupInfo, setPopupInfo] = useState(null);
+  const { markers } = useContext(MapContext);
 
   const pins = useMemo(
     () =>
-      CITIES.map((city, index) => (
+      markers?.map((marker, index) => (
         <Marker
           key={`marker-${index}`}
-          longitude={city.longitude}
-          latitude={city.latitude}
+          longitude={marker.longitude}
+          latitude={marker.latitude}
           anchor="bottom"
           onClick={(e) => {
             // If we let the click event propagates to the map, it will immediately close the popup
             // with `closeOnClick: true`
             e.originalEvent.stopPropagation();
-            setPopupInfo(city);
+            setPopupInfo(marker);
           }}
         >
-          <Pin />
+          <Pin iconType={marker.iconType} />
         </Marker>
       )),
-    []
+    [markers]
   );
 
   return (
     <Map
       initialViewState={{
-        latitude: 40,
-        longitude: -100,
-        zoom: 3.5,
+        latitude: 54.6943,
+        longitude: 25.2836,
+        zoom: 15,
         bearing: 0,
         pitch: 0,
       }}
@@ -68,16 +66,10 @@ const MapComponent = () => {
           latitude={Number(popupInfo.latitude)}
           onClose={() => setPopupInfo(null)}
         >
-          <div>
-            {popupInfo.city}, {popupInfo.state} |{" "}
-            <a
-              target="_new"
-              href={`http://en.wikipedia.org/w/index.php?title=Special:Search&search=${popupInfo.city}, ${popupInfo.state}`}
-            >
-              Wikipedia
-            </a>
-          </div>
-          <img width="100%" src={popupInfo.image} />
+          <Typography variant="p" component="p" color="black">
+            {popupInfo.description}
+          </Typography>
+          {popupInfo.image && <img width="100%" src={popupInfo.image} />}
         </Popup>
       )}
     </Map>
