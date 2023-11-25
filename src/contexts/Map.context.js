@@ -63,9 +63,8 @@ const MapContextProvider = ({ children }) => {
     },
   ]);
 
-  const updateMarkers = (newMarkers) => {
-    setMarkers((prevState) => ({ ...prevState, markers: newMarkers }));
-  };
+  const updateMarkers = (newMarkers) => setMarkers(newMarkers);
+  ;
 
   return (
     <MapContext.Provider value={{ markers, updateMarkers }}>

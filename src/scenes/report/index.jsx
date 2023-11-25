@@ -14,29 +14,32 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import Header from "../../components/Header";
 import { useContext, useState } from "react";
 import { MapContext } from "../../contexts/Map.context";
-
+import Pin from "../../components/Map/pin";
+import { useNavigate } from 'react-router-dom';
 import React from "react";
 const Report = () => {
-  const [category, setCategory] = useState("War");
+  const [category, setCategory] = useState(null);
   const [fileURI, setFileURI] = useState();
+  const navigate = useNavigate();
 
   const { markers, updateMarkers } = useContext(MapContext);
 
   const handleFormSubmit = (values) => {
     const updatedValues = {
-      ...values,
+      description: values.description,
       latitude: 54.6943,
       longitude: 25.2836,
-      img: fileURI,
-      category: category,
+      image: fileURI,
+      iconType: category,
     };
-    updateMarkers(updatedValues)
+    updateMarkers([...markers, updatedValues]);
 
-    setCategory("War")
-    setFileURI(null)
-    values.description = ""
-    values.location = ""
-    
+    setCategory(null);
+    setFileURI(null);
+
+    values.description = "";
+    values.location = "";
+    navigate('/');
   };
 
   const handleFileChange = (event) => {
@@ -91,11 +94,36 @@ const Report = () => {
                   onChange={handleCategory}
                   error={!!touched.category && !!errors.category}
                   displayEmpty
+                  sx={{
+                    "& .MuiFilledInput-input": {
+                      display: "flex",
+                      alignItems: "center",
+                    },
+                  }}
                 >
-                  <MenuItem value={"War"}>War</MenuItem>
-                  <MenuItem value={"Shelter"}>Shelter</MenuItem>
-                  <MenuItem value={"Help"}>Help</MenuItem>
-                  <MenuItem value={"Medical Help"}>Medical Help</MenuItem>
+                  <MenuItem value={"Enemy"}>
+                    {" "}
+                    <Pin iconType="Enemy" /> Enemy{" "}
+                  </MenuItem>
+                  <MenuItem value={"Explosion"}>
+                    {" "}
+                    <Pin iconType="Explosion" /> Explosion
+                  </MenuItem>
+                  <MenuItem value={"Help"}>
+                    <Pin iconType="Help" /> Help
+                  </MenuItem>
+                  <MenuItem value={"Pickup"}>
+                    <Pin iconType="Pickup" />
+                    Pickup
+                  </MenuItem>
+                  <MenuItem value={"Resources"}>
+                    <Pin iconType="Resources" />
+                    Resources
+                  </MenuItem>
+                  <MenuItem value={"Shelter"}>
+                    <Pin iconType="ShelterNoCount" />
+                    Shelter
+                  </MenuItem>
                 </Select>
               </FormControl>
               <TextField
