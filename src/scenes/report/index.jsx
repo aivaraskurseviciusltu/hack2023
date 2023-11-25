@@ -123,12 +123,12 @@ const Report = () => {
                         {" "}
                         <Pin1 iconType="Explosion" /> Explosion
                       </MenuItem>
-                      <MenuItem value={"Humanitarian"}>
-                        <Pin iconType="Help" /> Help
+                      <MenuItem value={"Help"}>
+                        <Pin iconType="Help" /> Humanitarian
                       </MenuItem>
-                      <MenuItem value={"SOS"}>
+                      <MenuItem value={"Pickup"}>
                         <Pin iconType="Pickup" />
-                        Pickup
+                        SOS
                       </MenuItem>
                       <MenuItem value={"Resources"}>
                         <Pin iconType="Resources" />
