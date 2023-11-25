@@ -99,7 +99,7 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Aivaras Kursevicius
+                    King of Calbalia
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
                   Volunteer
@@ -124,8 +124,8 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Notifications"
-              to="/notifications"
+              title="Alerts"
+              to="/alerts"
               icon={<NotificationsActiveIcon />}
               selected={selected}
               setSelected={setSelected}

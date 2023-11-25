@@ -5,6 +5,7 @@ import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import Form from "./scenes/form";
 import Report from "./scenes/report";
+import Alerts from "./scenes/alerts";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 
@@ -22,8 +23,8 @@ function App() {
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/form" element={<Form />} />
-              <Route path="/report" element={<Report/>} ></Route>
+              <Route path="/report" element={<Report />} />
+              <Route path="/alerts" element={<Alerts/>} ></Route>
             </Routes>
           </main>
         </div>

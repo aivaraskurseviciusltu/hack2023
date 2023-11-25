@@ -7,12 +7,12 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { tokens } from "../../theme";
 
-const Notifications = () => {
+const Alerts = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
     <Box m="20px">
-      <Header title="FAQ" subtitle="Frequently Asked Questions Page" />
+      <Header title="Alerts" subtitle="War Updates from the Throne: Defending Calbalia Against the Invasion of Ducalolia" />
 
       <Accordion defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -83,4 +83,4 @@ const Notifications = () => {
   );
 };
 
-export default Notifications;
+export default Alerts;
