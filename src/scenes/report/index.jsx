@@ -17,6 +17,7 @@ import Header from "../../components/Header";
 import { useContext, useState } from "react";
 import { MapContext } from "../../contexts/Map.context";
 import Pin from "../../components/Map/pin";
+import Pin1 from "../../components/Map/pin1";
 import { useNavigate } from "react-router-dom";
 import Map from "../../components/DraggablePinMap/Map";
 
@@ -116,16 +117,16 @@ const Report = () => {
                     >
                       <MenuItem value={"Enemy"}>
                         {" "}
-                        <Pin iconType="Enemy" /> Enemy{" "}
+                        <Pin1 iconType="Enemy" /> Enemy{" "}
                       </MenuItem>
                       <MenuItem value={"Explosion"}>
                         {" "}
-                        <Pin iconType="Explosion" /> Explosion
+                        <Pin1 iconType="Explosion" /> Explosion
                       </MenuItem>
-                      <MenuItem value={"Help"}>
+                      <MenuItem value={"Humanitarian"}>
                         <Pin iconType="Help" /> Help
                       </MenuItem>
-                      <MenuItem value={"Pickup"}>
+                      <MenuItem value={"SOS"}>
                         <Pin iconType="Pickup" />
                         Pickup
                       </MenuItem>
@@ -150,18 +151,6 @@ const Report = () => {
                     name="description"
                     error={!!touched.description && !!errors.description}
                     helperText={touched.description && errors.description}
-                  />
-                  <TextField
-                    multiline
-                    variant="filled"
-                    type="text"
-                    label="Location"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    value={values.location}
-                    name="location"
-                    error={!!touched.location && !!errors.location}
-                    helperText={touched.location && errors.location}
                   />
                   <Button
                     component="label"
@@ -201,12 +190,10 @@ const Report = () => {
 
 const checkoutSchema = yup.object().shape({
   description: yup.string().required("required"),
-  location: yup.string().required("required"),
 });
 
 const initialValues = {
   description: "",
-  location: "",
 };
 
 export default Report;

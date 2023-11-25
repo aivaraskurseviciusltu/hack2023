@@ -9,6 +9,7 @@ import MapIcon from "@mui/icons-material/Map";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 
+
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -18,7 +19,9 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       style={{
         color: colors.grey[100],
       }}
-      onClick={() => setSelected(title)}
+      onClick={() => {
+        setSelected(title)
+      }}
       icon={icon}
     >
       <Typography variant="h4">{title}</Typography>
@@ -46,10 +49,10 @@ const Sidebar = () => {
           padding: "5px 35px 5px 20px !important",
         },
         "& .pro-inner-item:hover": {
-          color: "#868dfb !important",
+          color: "#4BCEAC !important",
         },
         "& .pro-menu-item.active": {
-          color: "#6870fa !important",
+          color: "#4BCEAC !important",
         },
       }}
     >
