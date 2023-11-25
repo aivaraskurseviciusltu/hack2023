@@ -9,6 +9,7 @@ const MapContextProvider = ({ children }) => {
     {
       latitude: 54.6943,
       longitude: 25.2836,
+      location: "Seimyniskiu g. 31",
       description: "Test",
       category: "myLocation",
       img: "./test.png",
