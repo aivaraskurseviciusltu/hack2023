@@ -14,7 +14,7 @@ const Alerts = () => {
     <Box m="20px">
       <Header title="Alerts" subtitle="War Updates from the Throne: Defending Calbalia Against the Invasion of Ducalolia" />
 
-      <Accordion defaultExpanded>
+      <Accordion defaultExpanded={false}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5" sx={{ fontWeight: 'bold' }}>
             [2023/11/25] 12:00 : The Invasion Unfolds
@@ -29,7 +29,7 @@ const Alerts = () => {
           <img src={`../../assets/invaded.png`} alt="Invasion Image" style={{ width: '400px', padding: '20px'}} />
         </AccordionDetails>
       </Accordion>
-      <Accordion defaultExpanded>
+      <Accordion defaultExpanded={false}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5" sx={{ fontWeight: 'bold' }}>
             [2023/11/25] 12:30 : King's Call to Arms
@@ -44,7 +44,7 @@ const Alerts = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion defaultExpanded>
+      <Accordion defaultExpanded={false}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5" sx={{ fontWeight: 'bold' }}>
             [2023/11/25] 13:00 : Frontline Dispatches
@@ -58,7 +58,7 @@ const Alerts = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion defaultExpanded>
+      <Accordion defaultExpanded={false}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5" sx={{ fontWeight: 'bold' }}>
             [2023/11/25] 13:30 : Kingdom's Resilience
@@ -73,7 +73,7 @@ const Alerts = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion defaultExpanded>
+      <Accordion defaultExpanded={false}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5" sx={{ fontWeight: 'bold' }}>
             [2023/11/25] 14:00 : International Support
@@ -88,7 +88,7 @@ const Alerts = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion defaultExpanded>
+      <Accordion defaultExpanded={false}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5" sx={{ fontWeight: 'bold' }}>
             [2023/11/25] 14:30 : International Support Strengthens
@@ -102,7 +102,7 @@ const Alerts = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion defaultExpanded>
+      <Accordion defaultExpanded={false}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography color={colors.greenAccent[500]} variant="h5" sx={{ fontWeight: 'bold' }}>
             [2023/11/25] 15:00 : Humanitarian Aid Arrives
