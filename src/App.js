@@ -23,8 +23,16 @@ function App() {
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
               <Route path="/" element={<Dashboard />} />
+<<<<<<< Updated upstream
               <Route path="/report" element={<Report />} />
               <Route path="/alerts" element={<Alerts/>} ></Route>
+=======
+              <Route path="/form" element={<Form />} />
+              <Route path="/report" element={<Report />}></Route>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
             </Routes>
           </main>
         </div>
