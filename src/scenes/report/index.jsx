@@ -179,8 +179,7 @@ const Report = () => {
             )}
           </Formik>
         </Stack>
-
-        <Stack flexGrow="1" >
+        <Stack flexGrow="1">
           <Map setMarkerPosition={setMarkerPosition} />
         </Stack>
       </Stack>

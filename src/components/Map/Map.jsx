@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState, useMemo } from "react";
 import { Typography } from "@mui/material";
 import Map, {
   Marker,
   Popup,
   NavigationControl,
-  FullscreenControl,
   ScaleControl,
   GeolocateControl,
 } from "react-map-gl";
 import Pin from "./pin";
 import { MapContext } from "../../contexts/Map.context";
+import { useRef } from "react";
 
 const TOKEN =
   "pk.eyJ1IjoibWFib25nIiwiYSI6ImNrMm9qN2tiYTEwc3ozZG41emx6bW9uZnQifQ.PhojWq3UwsAlPB7LBvJiTw"; // Set your mapbox token here
@@ -18,6 +18,12 @@ const TOKEN =
 const MapComponent = () => {
   const [popupInfo, setPopupInfo] = useState(null);
   const { markers } = useContext(MapContext);
+  const geoControlRef = useRef();
+
+  function buttonClick(){
+    const geolocateButton = document.querySelector('.mapboxgl-ctrl-geolocate');
+    geolocateButton.click()
+  }
 
   const pins = useMemo(
     () =>
@@ -36,6 +42,7 @@ const MapComponent = () => {
         >
           <Pin iconType={marker.iconType} />
         </Marker>
+        
       )),
     [markers]
   );
@@ -49,14 +56,13 @@ const MapComponent = () => {
         bearing: 0,
         pitch: 0,
       }}
+      onLoad={buttonClick}
       mapStyle="mapbox://styles/mapbox/dark-v9"
       mapboxAccessToken={TOKEN}
     >
-      <GeolocateControl position="top-left" />
-      <FullscreenControl position="top-left" />
+      <GeolocateControl index="geolocateControl" position="top-left" ref={geoControlRef}/>
       <NavigationControl position="top-left" />
       <ScaleControl />
-
       {pins}
 
       {popupInfo && (

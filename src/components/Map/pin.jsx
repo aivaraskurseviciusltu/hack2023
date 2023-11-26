@@ -50,11 +50,8 @@ function Pin({ size = 60, iconType }) {
       case "ShelterNoCount":
         return <img src={ShelterNoCount} width={size} alt="ShelterNoCount" />;
       default:
-        return (
-          <svg height={20} viewBox="0 0 24 24" style={pinStyle}>
-            <path d={CURRENT_LOCATION} />
-          </svg>
-        );
+        return
+   
     }
   };
   return getIcon();

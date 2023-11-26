@@ -16,9 +16,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   const colors = tokens(theme.palette.mode);
   const location = useLocation();
 
- useEffect(() => {
-    console.log(location.pathname);
-    
+ useEffect(() => { 
     if (location.pathname.includes("/report")) {
       setSelected("Report");
     } else if (location.pathname.includes("/alerts")) {

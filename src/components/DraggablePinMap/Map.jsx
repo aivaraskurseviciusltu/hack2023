@@ -60,7 +60,7 @@ const MapComponent = ({ setMarkerPosition }) => {
       mapboxAccessToken={TOKEN}
     >
       <GeolocateControl position="top-left" />
-      <FullscreenControl position="top-left" />
+
       <NavigationControl position="top-left" />
       <ScaleControl />
 
